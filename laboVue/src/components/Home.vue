@@ -11,6 +11,9 @@ export default {
     return {
       title: 'HOME'
     }
+  },
+  beforeCreate() {
+    console.log(localStorage);
   }
 }
 </script>
