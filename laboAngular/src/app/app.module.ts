@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MdTableModule } from '@angular/material';
+import { CdkTableModule } from '@angular/cdk';
 
-// import {Ng2Highcharts, Ng2Highstocks} from 'ng2-highcharts';
 import { Ng2HighchartsModule } from 'ng2-highcharts';
 
 import { AppRoutingModule } from './app.route';
@@ -25,7 +27,10 @@ import { ModulesComponent } from './component/modules/modules.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    Ng2HighchartsModule
+    Ng2HighchartsModule,
+    BrowserAnimationsModule,
+    MdTableModule,
+    CdkTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
