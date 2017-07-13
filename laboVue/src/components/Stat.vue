@@ -58,7 +58,7 @@ export default {
   data () {
     return {
       chart1: null,
-      options1: {
+      options: {
         chart: {
           type: 'spline'
         },
@@ -70,32 +70,16 @@ export default {
         }]
       },
       chart2: null,
-      options2: {
-        credits: {
-          enabled: false
-        },
-        series: []
-      },
       chart3: null,
-      chart4: null
+      chart4: null,
+      refreshChart: true
     }
   },
   mounted() {
-    // const self = this
-    // Axios({
-    //   method: 'get',
-    //   url: 'https://www.highcharts.com/samples/data/jsonp.php?filename=MSFT-c.json&callback=?'
-    // })
-    // .then(response => {
-    //   self.options2.series.push({
-    //     data: response.data
-    //   })
-    // })
-
-    this.chart1 = Highcharts.chart('chart1',this.options1)
-    this.chart2 = Highcharts.chart('chart2',this.options1)
-    this.chart3 = Highcharts.chart('chart3',this.options1)
-    this.chart4 = Highcharts.chart('chart4',this.options1)
+    this.chart1 = Highcharts.chart('chart1',this.options)
+    this.chart2 = Highcharts.chart('chart2',this.options)
+    this.chart3 = Highcharts.chart('chart3',this.options)
+    this.chart4 = Highcharts.chart('chart4',this.options)
   }
 }
 </script>
