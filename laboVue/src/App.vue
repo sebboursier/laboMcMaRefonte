@@ -12,19 +12,25 @@
           <router-link to="/modules" active-class="active" tag="li">
             <a>Modules</a>
           </router-link>
-          <router-link to="/list" active-class="active" tag="li">
-            <a>List</a>
-          </router-link>
-          <router-link to="/Stat" active-class="active" tag="li">
-            <a>Stat</a>
-          </router-link>
         </ul>
 
-        <form class="navbar-form navbar-right" role="search">
-          <div class="form-group">
-            <input type="text" placeholder="Rechercher un module" class="form-control">
-          </div>
-        </form>
+        <ul class="nav navbar-nav">
+          <router-link to="/grid" active-class="active" tag="li">
+            <a>Grid</a>
+          </router-link>
+          <router-link to="/chart" active-class="active" tag="li">
+            <a>Chart</a>
+          </router-link>
+          <router-link to="/pivot" active-class="active" tag="li">
+            <a>Pivot</a>
+          </router-link>
+          <router-link to="/calendar" active-class="active" tag="li">
+            <a>Calendar</a>
+          </router-link>
+          <router-link to="/graph" active-class="active" tag="li">
+            <a>Graph</a>
+          </router-link>
+        </ul>
 
       </div>
     </header>
@@ -37,9 +43,8 @@
 </template>
 
 <script>
-
 export default {
-  name: 'app'
+  name: 'app',
 }
 </script>
 

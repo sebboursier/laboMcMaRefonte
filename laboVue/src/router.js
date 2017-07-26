@@ -3,8 +3,11 @@ import Router from 'vue-router'
 
 import Modules from '@/components/Modules'
 import Home from '@/components/Home'
-import List from '@/components/List'
-import Stat from '@/components/Stat'
+import Grid from '@/components/Grid'
+import Chart from '@/components/Chart'
+import Pivot from '@/components/Pivot'
+import Calendar from '@/components/Calendar'
+import Graph from '@/components/Graph'
 
 Vue.use(Router)
 
@@ -20,13 +23,25 @@ export default new Router({
       name: 'Modules',
       component: Modules
     },{
-      path: '/list',
-      name: 'List',
-      component: List
+      path: '/grid',
+      name: 'Grid',
+      component: Grid
     },{
-      path: '/stat',
-      name: 'Stat',
-      component: Stat
+      path: '/chart',
+      name: 'Chart',
+      component: Chart
+    },{
+      path: '/pivot',
+      name: 'Pivot',
+      component: Pivot
+    },{
+      path: '/calendar',
+      name: 'Calendar',
+      component: Calendar
+    },{
+      path: '/graph',
+      name: 'Graph',
+      component: Graph
     }
   ]
 })

@@ -4,12 +4,24 @@ export default [
     path: '/home',
     description: "Dashboard d'acceuil."
   },{
-    name: 'Stat',
-    path: '/stat',
-    description: "Module de consultation des statistiques."
+    name: 'Chart',
+    path: '/chart',
+    description: "Test des Charts."
   },{
-    name: 'List',
-    path: '/list',
-    description: "Liste dans un tableau."
+    name: 'Grid',
+    path: '/grid',
+    description: "Test des Grid."
+  }, {
+    name: 'Pivot',
+    path: '/pivot',
+    description: "Test des Pivots."
+  }, {
+    name: 'Calendar',
+    path: '/calendar',
+    description: "Test des Calendar."
+  }, {
+    name: 'Graph',
+    path: '/graph',
+    description: "Test des Graph."
   }
 ]

@@ -4,7 +4,7 @@
     <div class="col-md-6">
       <article class="panel panel-primary">
         <div class="panel-heading">
-          List grace à "vue-tables-2"
+          Grid "vue-tables-2"
         </div>
         <div class="panel-body">
           <v-client-table :data="datas" :columns="[ 'text', 'date', 'delete' ]" :options="options">
@@ -22,7 +22,7 @@
 <script>
 
 export default {
-  name: 'list',
+  name: 'grid',
   data () {
     return {
       selected: {},
