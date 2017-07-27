@@ -22,13 +22,18 @@ export default {
   data () {
     return {
       dndTree: null,
-      nodes: {
-        name: "ROOT",
-        children: [{
-          name: "CHILD_1"
-        },{
-          name: "CHILD_2"
-        }]
+      treeData: {
+        "name": "REF_1",
+        "children": [
+          {
+            "name": "REF_1_2",
+            "children": [
+              { "name": "REF_1_2_1" },
+              { "name": "REF_1_2_2" }
+            ]
+          },
+          { "name": "REF_1_1" }
+        ]
       }
     }
   },
@@ -47,15 +52,49 @@ export default {
     }
   },
   mounted() {
-    this.dndTree = DndTree(this.$refs.dndTree,this.nodes)
+    this.dndTree = DndTree(this.$refs.dndTree,this.treeData)
   }
 }
 
 </script>
 
-<style scoped>
-.dndTree {
-  width: 100%;
-  height: 200px;
-}
+<style>
+.node {
+    cursor: pointer;
+  }
+
+  .overlay{
+      background-color:#EEE;
+  }
+
+  .node circle {
+    fill: #fff;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+  }
+
+  .node text {
+    font-size:10px;
+    font-family:sans-serif;
+  }
+
+  .link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 1.5px;
+  }
+
+  .templink {
+    fill: none;
+    stroke: red;
+    stroke-width: 3px;
+  }
+
+  .ghostCircle.show{
+      display:block;
+  }
+
+  .ghostCircle, .activeDrag .ghostCircle{
+       display: none;
+  }
 </style>
