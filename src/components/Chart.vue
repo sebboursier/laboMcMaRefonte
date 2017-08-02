@@ -78,7 +78,6 @@ export default {
         datas.push({x: date.valueOf(), y: randPoint()})
         date = date.clone().add(1, 'day')
       }
-      console.log(datas);
       return datas;
     }
   },

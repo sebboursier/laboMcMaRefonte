@@ -38,6 +38,9 @@
               </router-link>
             </ul>
           </li>
+          <router-link to="/tablayout" active-class="active" tag="li">
+            <a>Tab Layout</a>
+          </router-link>
         </ul>
 
       </div>

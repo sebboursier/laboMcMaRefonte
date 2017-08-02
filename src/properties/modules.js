@@ -26,6 +26,10 @@ export default [
   }, {
     name: 'GraphCustom',
     path: '/graphcustom',
-    description: "Tantative de création d'un Graph SVG maison."
+    description: "Tentative de création d'un Graph SVG maison."
+  }, {
+    name: 'TabLayout',
+    path: '/tablayout',
+    description: "Essaie de layout en Tab."
   }
 ]

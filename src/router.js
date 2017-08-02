@@ -9,6 +9,7 @@ import Pivot from '@/components/Pivot'
 import Calendar from '@/components/Calendar'
 import Graph from '@/components/Graph'
 import GraphCustom from '@/components/GraphCustom'
+import TabLayout from '@/components/TabLayout'
 
 Vue.use(Router)
 
@@ -47,6 +48,10 @@ export default new Router({
       path: '/graphcustom',
       name: 'GraphCustom',
       component: GraphCustom
+    },{
+      path: '/tablayout',
+      name: 'TabLayout',
+      component: TabLayout
     }
   ]
 })

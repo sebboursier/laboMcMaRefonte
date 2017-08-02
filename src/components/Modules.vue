@@ -62,6 +62,10 @@ export default {
       })
       return modules
     }
+  }, watch: {
+    modules() {
+      console.log("COUCOU");
+    }
   }
 }
 </script>
