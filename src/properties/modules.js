@@ -1,35 +1,76 @@
+import Vue from 'vue'
+
+import Grid from '@/components/Grid'
+Vue.component(Grid.name,Grid)
+import Chart from '@/components/Chart'
+Vue.component(Chart.name,Chart)
+import Pivot from '@/components/Pivot'
+Vue.component(Pivot.name,Pivot)
+import Calendar from '@/components/Calendar'
+Vue.component(Calendar.name,Calendar)
+import Graph from '@/components/Graph'
+Vue.component(Graph.name,Graph)
+import GraphCustom from '@/components/GraphCustom'
+Vue.component(GraphCustom.name,GraphCustom)
+import ReseauDetails from '@/components/reseauDetails/ReseauDetails'
+Vue.component(ReseauDetails.name,ReseauDetails)
+
 export default [
   {
-    name: 'Acceuil',
-    path: '/home',
-    description: "Dashboard d'acceuil."
-  },{
+    router: {
+      path: '/chart',
+      name: Chart.name,
+      component: Chart
+    },
     name: 'Chart',
-    path: '/chart',
-    description: "Test des Charts."
+    description: "Test des Charts.",
   },{
+    router: {
+      path: '/grid',
+      name: Grid.name,
+      component: Grid
+    },
     name: 'Grid',
-    path: '/grid',
-    description: "Test des Grid."
+    description: "Test des Grid.",
   }, {
+    router: {
+      path: '/pivot',
+      name: Pivot.name,
+      component: Pivot
+    },
     name: 'Pivot',
-    path: '/pivot',
-    description: "Test des Pivots."
+    description: "Test des Pivots.",
   }, {
+    router: {
+      path: '/calendar',
+      name: Calendar.name,
+      component: Calendar
+    },
     name: 'Calendar',
-    path: '/calendar',
-    description: "Test des Calendar."
+    description: "Test des Calendar.",
   }, {
+    router: {
+      path: '/graph',
+      name: Graph.name,
+      component: Graph
+    },
     name: 'Graph',
-    path: '/graph',
-    description: "Test des Graph."
+    description: "Test des Graph.",
   }, {
+    router: {
+      path: '/graphcustom',
+      name: GraphCustom.name,
+      component: GraphCustom
+    },
     name: 'GraphCustom',
-    path: '/graphcustom',
-    description: "Tentative de création d'un Graph SVG maison."
+    description: "Tentative de création d'un Graph SVG maison.",
   }, {
-    name: 'TabLayout',
-    path: '/tablayout',
-    description: "Essaie de layout en Tab."
+    router: {
+      path: '/reseaudetails/:id',
+      name: ReseauDetails.name,
+      component: ReseauDetails
+    },
+    name: 'ReseauDetails',
+    description: "Detail d'un réseau.",
   }
 ]

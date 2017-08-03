@@ -8,7 +8,10 @@
             Filtres
           </div>
           <div class="panel-body">
-            <input class="form-control" type="text" placeholder="Rechercher un module" v-model="search">
+            <div class="input-group">
+              <label for="search" class="input-group-addon"><span class="glyphicon glyphicon-search"></span></label>
+              <input id="search" type="text" class="form-control" placeholder="Rechercher un module" v-model="search">
+            </div>
           </div>
 
         </article>
@@ -20,12 +23,13 @@
         <article class="panel panel-primary">
           <div class="panel-heading">
             {{module.name}}
+            <span class="right">
+              <button type="button" class="btn btn-success btn-xs" @click="addTab(module)"><span class="glyphicon glyphicon-plus"></span></button>
+              <button type="button" class="btn btn-info btn-xs" @click="navigate(module)"><span class="glyphicon glyphicon-new-window"></span></button>
+            </span>
           </div>
           <div class="panel-body">
             {{module.description}}
-            <div class="">
-              <button type="button" class="btn btn-info" @click="navigate(module)">Aller</button>
-            </div>
           </div>
         </article>
       </div>
@@ -36,20 +40,24 @@
 </template>
 
 <script>
+
 import Modules from '@/properties/modules'
 
 import Router from '@/router'
 
 export default {
-  name: 'modules',
+  name: 'modules-tiles',
   data () {
     return {
-      search: ""
+      search: ''
     }
   },
   methods: {
     navigate(module) {
-      Router.push(module.path)
+      Router.push(module.router.path)
+    },
+    addTab(module) {
+      this.$emit('select',module)
     }
   },
   computed: {
@@ -62,14 +70,12 @@ export default {
       })
       return modules
     }
-  }, watch: {
-    modules() {
-      console.log("COUCOU");
-    }
   }
 }
 </script>
 
 <style scoped>
-
+.right {
+  float: right;
+}
 </style>
