@@ -7,26 +7,35 @@
           Naviguer dans les modules
         </div>
         <div class="panel-body">
-
+          <ul class="nav nav-pills nav-stacked">
+            <li v-for="module in modules"><a>{{module.name}}</a></li>
+          </ul>
         </div>
       </nav>
     </div>
 
     <div class="col-md-10">
-      <ul class="nav nav-tabs">
-        <li v-for="open in opened" :class="{ active: active == open}" @click="openModule(open)">
-          <a>
-            {{open}}
-            <span class="glyphicon glyphicon-remove" @click="remove(open)"></span>
-          </a>
-        </li>
-      </ul>
+      <div class="panel panel-default">
+        <ul class="nav nav-tabs">
+          <li v-for="open in opened" :class="{ active: active == open}" @click="openModule(open)">
+            <a>
+              {{open}}
+              <span class="glyphicon glyphicon-remove" @click="remove(open)"></span>
+            </a>
+          </li>
+        </ul>
+        <div class="jumbotron">
+          {{active}}
+        </div>
+      </div>
     </div>
 
   </section>
 </template>
 
 <script>
+
+import Modules from '@/properties/modules'
 
 export default {
   name: "tab-layout",
@@ -38,6 +47,11 @@ export default {
     ],
     active: null
   }),
+  computed: {
+    modules() {
+      return Modules
+    }
+  },
   methods: {
     openModule(module) {
       this.active = module
