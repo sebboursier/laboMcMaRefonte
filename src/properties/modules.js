@@ -24,6 +24,10 @@ export default [
     },
     name: 'Chart',
     description: "Test des Charts.",
+    tags: [ 'hightChart', 'hightStock', 'ChartJs' ],
+    categories: {
+      metier: [ 'dev' ]
+    }
   },{
     router: {
       path: '/grid',
@@ -32,6 +36,10 @@ export default [
     },
     name: 'Grid',
     description: "Test des Grid.",
+    tags: [ 'vue-tables-2' ],
+    categories: {
+      metier: [ 'dev' ]
+    }
   }, {
     router: {
       path: '/pivot',
@@ -40,6 +48,10 @@ export default [
     },
     name: 'Pivot',
     description: "Test des Pivots.",
+    tags: [ 'PivotTableJS' ],
+    categories: {
+      metier: [ 'dev' ]
+    }
   }, {
     router: {
       path: '/calendar',
@@ -48,6 +60,10 @@ export default [
     },
     name: 'Calendar',
     description: "Test des Calendar.",
+    tags: [ 'VisJs' ],
+    categories: {
+      metier: [ 'dev' ]
+    }
   }, {
     router: {
       path: '/graph',
@@ -56,6 +72,10 @@ export default [
     },
     name: 'Graph',
     description: "Test des Graph.",
+    tags: [ 'D3Js' ],
+    categories: {
+      metier: [ 'dev' ]
+    }
   }, {
     router: {
       path: '/graphcustom',
@@ -64,13 +84,21 @@ export default [
     },
     name: 'GraphCustom',
     description: "Tentative de création d'un Graph SVG maison.",
+    tags: [ 'SVG', 'custom' ],
+    categories: {
+      metier: [ 'dev' ]
+    }
   }, {
     router: {
       path: '/reseaudetails/:id',
       name: ReseauDetails.name,
       component: ReseauDetails
     },
-    name: 'ReseauDetails',
+    name: 'Reseau Details',
     description: "Detail d'un réseau.",
+    categories: {
+      metier: [ 'user' ],
+      entryPoint: [ 'reseau' ]
+    }
   }
 ]

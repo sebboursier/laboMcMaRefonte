@@ -1,0 +1,24 @@
+.input-group {
+  margin-bottom: 10px;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.panel-tab-content {
+  padding-top: 10px;
+  border-color: #ddd;
+  border-top: none;
+}
+.panel-nav-submenu {
+  border-color: #ddd;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0px;
+}

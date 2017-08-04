@@ -1,16 +1,19 @@
 <template>
-  <section class="container-fluid">
+  <section>
 
-    <article v-if="!reseau">
-      <div class="alert alert-warning">
-        Veuillez choisir un réseau.
-      </div>
+    <contextualizer :reseau.sync="reseau"></contextualizer>
 
-      <contextualizer :reseau.sync="reseau"></contextualizer>
+    <section class="container-fluid">
+      <article v-if="!reseau">
+        <div class="alert alert-warning">
+          Veuillez choisir un réseau.
+        </div>
 
-    </article>
 
-    {{reseau}}
+      </article>
+
+      {{reseau}}
+    </section>
 
   </section>
 </template>
