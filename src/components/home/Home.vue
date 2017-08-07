@@ -21,6 +21,7 @@
           <li v-for="tab in tabs" :class="{ active: active == tab}" @click="openTab(tab)">
             <a>
               {{tab.module.name}}
+              {{tab.context}}
               <a v-if="active == tab" :href="'#'+active.module.router.path" target="_blank" class="btn btn-info btn-xs glyphicon glyphicon-new-window"></a>
               <span  @click.stop="closeTab(tab)" class="btn btn-danger btn-xs glyphicon glyphicon-remove"></span>
             </a>
@@ -30,7 +31,7 @@
       </ul>
 
       <article class="panel panel-tab-content">
-        <component v-if="active" :is="active.module.router.component"></component>
+        <component v-if="active" :is="active.module.router.component" @contextualize="contextualize"></component>
         <modules-tiles v-else @select="addModule"></modules-tiles>
       </article>
 
@@ -60,7 +61,8 @@ export default {
     addModule(module) {
       var tab = {
         id: this.compteur,
-        module: module
+        module: module,
+        context: {}
       }
       this.compteur++
       this.tabs.push(tab)
@@ -79,6 +81,9 @@ export default {
           this.active = null
         }
       }
+    },
+    contextualize(context) {
+      this.active.context = context
     }
   }
 }

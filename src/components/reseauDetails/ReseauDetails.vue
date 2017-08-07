@@ -1,18 +1,22 @@
 <template>
   <section>
 
-    <contextualizer :reseau.sync="reseau"></contextualizer>
+    <contextualizer entryPoint="reseau" @contextualize="contextualize"></contextualizer>
 
     <section class="container-fluid">
+      <article v-if="error">
+        <div class="alert alert-danger">
+          {{error}}
+        </div>
+      </article>
       <article v-if="!reseau">
         <div class="alert alert-warning">
           Veuillez choisir un réseau.
         </div>
-
-
       </article>
-
-      {{reseau}}
+      <article v-else>
+        {{reseau}}
+      </article>
     </section>
 
   </section>
@@ -20,33 +24,53 @@
 
 <script>
 
-import Contextualizer from './Contextualizer'
+import Contextualizer from '@/common/contextualizer/Contextualizer'
+
+import axios from 'axios'
 
 export default {
   name: 'reseau-details',
+  props: ['id'],
   components: {
     Contextualizer
   },
-  props: ['value'],
-  data: () => ({
-    reseau: null
-  }),
-  created() {
-    let id = null
-    if(this.$route.params.id) {
-      id = this.$route.params.id
-    } else if(this.value) {
-      id = this.value.id
-    }
 
-    if(id) {
-      // this.Axios({
-      //   methods: 'get',
-      //   url: 'http://10.33.135.68:8080/api/reseau/'+id,
-      //   responseType: 'application/json'
-      // }).then(response => {
-      //   this.reseau = response._embeded.reseau
-      // })
+  data: () => ({
+    reseau: null,
+    error: null
+  }),
+
+  computed: {
+    standAlone() {
+      return this.$route.params.id != null
+    }
+  },
+
+  created() {
+    if(this.id && this.id !== ':id') {
+      axios({
+        method: 'get',
+        url: 'http://localhost:8888/api/reseaus/'+this.id,
+        headers: {
+          User: 'test',
+          Token: 'test'
+        },
+      }).then(response => {
+        this.reseau = response.data
+      }).catch(error => {
+        this.error = error
+      })
+    }
+  },
+
+  methods: {
+    contextualize(reseau) {
+      if(this.standAlone) {
+        this.$router.push({ name: this.name, params: { id: reseau.idreseau }})
+      } else {
+        this.$emit('contextualize', {id: reseau.idreseau})
+      }
+      this.reseau = reseau
     }
   }
 }

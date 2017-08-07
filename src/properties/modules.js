@@ -14,6 +14,8 @@ import GraphCustom from '@/components/GraphCustom'
 Vue.component(GraphCustom.name,GraphCustom)
 import ReseauDetails from '@/components/reseauDetails/ReseauDetails'
 Vue.component(ReseauDetails.name,ReseauDetails)
+import ImplantationDetails from '@/components/implantationDetails/ImplantationDetails'
+Vue.component(ImplantationDetails.name,ImplantationDetails)
 
 export default [
   {
@@ -92,13 +94,27 @@ export default [
     router: {
       path: '/reseaudetails/:id',
       name: ReseauDetails.name,
-      component: ReseauDetails
+      component: ReseauDetails,
+      props: true
     },
     name: 'Reseau Details',
     description: "Detail d'un réseau.",
     categories: {
       metier: [ 'user' ],
       entryPoint: [ 'reseau' ]
+    }
+  }, {
+    router: {
+      path: '/implantationdetails/:id',
+      name: ImplantationDetails.name,
+      component: ImplantationDetails,
+      props: true
+    },
+    name: 'Implantation Details',
+    description: "Detail d'une implantation.",
+    categories: {
+      metier: [ 'user' ],
+      entryPoint: [ 'implantation' ]
     }
   }
 ]
