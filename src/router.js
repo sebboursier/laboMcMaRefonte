@@ -5,7 +5,7 @@ Vue.use(Router)
 
 import Modules from '@/properties/modules'
 
-import Home from '@/components/home/Home'
+import Home from '@/layout/home/Home'
 
 const routes = Modules.map(module => {
   return module.router

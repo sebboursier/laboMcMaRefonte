@@ -1,7 +1,7 @@
 <template>
   <section>
 
-    <contextualizer entryPoint="reseau" @contextualize="contextualize"></contextualizer>
+    <contextualizer entryPoint="reseau" :entryPointValue="reseau" @contextualize="contextualize"></contextualizer>
 
     <section class="container-fluid">
       <article v-if="error">
@@ -17,6 +17,7 @@
       <article v-else>
         {{reseau}}
       </article>
+      {{standAlone}}
     </section>
 
   </section>
@@ -24,13 +25,13 @@
 
 <script>
 
-import Contextualizer from '@/common/contextualizer/Contextualizer'
+import Contextualizer from '@/layout/contextualizer/Contextualizer'
 
 import axios from 'axios'
 
 export default {
   name: 'reseau-details',
-  props: ['id'],
+  props: ['context', 'id'],
   components: {
     Contextualizer
   },
@@ -42,15 +43,22 @@ export default {
 
   computed: {
     standAlone() {
-      return this.$route.params.id != null
+      return this.context == null
     }
   },
 
   created() {
-    if(this.id && this.id !== ':id') {
+    let id = null
+    if(this.context && this.context.id) {
+      id = this.context.id
+    } else if(this.id && this.id !== ':id') {
+      id = this.id
+    }
+
+    if(id) {
       axios({
         method: 'get',
-        url: 'http://localhost:8888/api/reseaus/'+this.id,
+        url: 'http://localhost:8888/api/reseaus/'+id,
         headers: {
           User: 'test',
           Token: 'test'

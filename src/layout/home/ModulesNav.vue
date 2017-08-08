@@ -12,16 +12,16 @@
       <div class="input-group">
         <label for="type" class="input-group-addon"><span class="glyphicon glyphicon-th-list"></span></label>
         <select id="type" class="form-control" v-model="type">
-          <option v-for="type in modulesTypes" :value="type">{{type.name}}</option>
+          <option v-for="type in modulesTypes" :key="type.name" :value="type">{{type.name}}</option>
         </select>
       </div>
 
-      <article class="panel panel-default categorie" v-for="categorie in type.content">
+      <article class="panel panel-default categorie" v-for="categorie in type.content" :key="categorie">
         <div class="panel-heading">
           {{categorie}}
         </div>
         <div class="list-group">
-          <a v-for="module in modules(categorie)" @click="select(module)" class="list-group-item">{{module.name}}</a>
+          <a v-for="module in modules(categorie)" :key="module.name" @click="select(module)" class="list-group-item">{{module.name}}</a>
         </div>
       </article>
 

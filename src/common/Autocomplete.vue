@@ -1,6 +1,9 @@
 <template>
-  <section class="input-group dropdown">
-    <label :for="name" class="input-group-addon">{{name}}</label>
+  <section class="input-group dropdown" :class="{'has-error has-feedback': error}">
+    <label :for="name" class="input-group-addon">
+      {{name}}
+      <span v-if="error" class="glyphicon glyphicon-signal" data-toggle="tooltip" title="Erreur lors de l'appel au serveur"></span>
+    </label>
     <input v-model="value" type="text" class="form-control dropdown-toggle" data-toggle="dropdown">
     <ul class="dropdown-menu" v-if="matches.length != 0">
       <li v-for="match in matches">
@@ -23,7 +26,8 @@ export default {
   props: ['name', 'bean', 'search', 'selector'],
   data: () => ({
     value: '',
-    matches: []
+    matches: [],
+    error: null
   }),
   watch: {
     value() {
@@ -36,10 +40,11 @@ export default {
             Token: 'test'
           },
         }).then(response => {
+          this.error = null
           this.matches = response.data._embedded[this.bean]
         }).catch(error => {
-          console.log("KO")
           console.log(error)
+          this.error = error
         })
       }
     }

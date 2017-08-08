@@ -22,8 +22,8 @@
             <a>
               {{tab.module.name}}
               {{tab.context}}
-              <a v-if="active == tab" :href="'#'+active.module.router.path" target="_blank" class="btn btn-info btn-xs glyphicon glyphicon-new-window"></a>
-              <span  @click.stop="closeTab(tab)" class="btn btn-danger btn-xs glyphicon glyphicon-remove"></span>
+              <a v-if="active == tab" :href="getPath(active)" target="_blank" class="btn btn-info btn-xs glyphicon glyphicon-new-window"></a>
+              <span @click.stop="closeTab(tab)" class="btn btn-danger btn-xs glyphicon glyphicon-remove"></span>
             </a>
           </li>
         </template>
@@ -31,8 +31,10 @@
       </ul>
 
       <article class="panel panel-tab-content">
-        <component v-if="active" :is="active.module.router.component" @contextualize="contextualize"></component>
-        <modules-tiles v-else @select="addModule"></modules-tiles>
+        <transition name="tab" mode="out-in">
+          <component v-if="active" :is="active.module.router.component" @contextualize="contextualize" :context="active.context" :key="active.id"></component>
+          <modules-tiles v-else @select="addModule" key="modules"></modules-tiles>
+        </transition>
       </article>
 
     </div>
@@ -84,11 +86,19 @@ export default {
     },
     contextualize(context) {
       this.active.context = context
+    },
+    getPath(tab) {
+      return '#'+tab.module.router.path
     }
   }
 }
 </script>
 
 <style scoped>
-
+.tab-enter-active, .tab-leave-active {
+  transition: opacity .2s
+}
+.tab-enter, .tab-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0
+}
 </style>

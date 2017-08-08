@@ -1,6 +1,8 @@
 <template>
   <section class="container-fluid">
 
+    <input type="text" v-model="test">
+
     <div class="col-md-6">
       <article class="panel panel-primary">
         <div class="panel-heading">
@@ -62,6 +64,16 @@ export default {
   name: 'chart',
   components: {
     'chart-js': chartJsComponent
+  },
+  computed: {
+    test: {
+      get() {
+        return window.localStorage.getItem("test")
+      },
+      set(value) {
+        window.localStorage.setItem("test",value)
+      }
+    }
   },
   data () {
     return {

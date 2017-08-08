@@ -24,7 +24,7 @@
 
 <script>
 
-import Contextualizer from '@/common/contextualizer/Contextualizer'
+import Contextualizer from '@/layout/contextualizer/Contextualizer'
 
 import axios from 'axios'
 

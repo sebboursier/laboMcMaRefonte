@@ -1,21 +1,21 @@
 import Vue from 'vue'
 
 import Grid from '@/components/Grid'
-Vue.component(Grid.name,Grid)
+Vue.component(Grid.name, Grid)
 import Chart from '@/components/Chart'
-Vue.component(Chart.name,Chart)
+Vue.component(Chart.name, Chart)
 import Pivot from '@/components/Pivot'
-Vue.component(Pivot.name,Pivot)
+Vue.component(Pivot.name, Pivot)
 import Calendar from '@/components/Calendar'
-Vue.component(Calendar.name,Calendar)
+Vue.component(Calendar.name, Calendar)
 import Graph from '@/components/Graph'
-Vue.component(Graph.name,Graph)
+Vue.component(Graph.name, Graph)
 import GraphCustom from '@/components/GraphCustom'
-Vue.component(GraphCustom.name,GraphCustom)
-import ReseauDetails from '@/components/reseauDetails/ReseauDetails'
-Vue.component(ReseauDetails.name,ReseauDetails)
+Vue.component(GraphCustom.name, GraphCustom)
+import ReseauDetails from '@/components/reseauDetails'
+Vue.component(ReseauDetails.name, ReseauDetails)
 import ImplantationDetails from '@/components/implantationDetails/ImplantationDetails'
-Vue.component(ImplantationDetails.name,ImplantationDetails)
+Vue.component(ImplantationDetails.name, ImplantationDetails)
 
 export default [
   {
@@ -26,11 +26,11 @@ export default [
     },
     name: 'Chart',
     description: "Test des Charts.",
-    tags: [ 'hightChart', 'hightStock', 'ChartJs' ],
+    tags: ['hightChart', 'hightStock', 'ChartJs'],
     categories: {
-      metier: [ 'dev' ]
+      metier: ['dev']
     }
-  },{
+  }, {
     router: {
       path: '/grid',
       name: Grid.name,
@@ -38,9 +38,9 @@ export default [
     },
     name: 'Grid',
     description: "Test des Grid.",
-    tags: [ 'vue-tables-2' ],
+    tags: ['vue-tables-2'],
     categories: {
-      metier: [ 'dev' ]
+      metier: ['dev']
     }
   }, {
     router: {
@@ -50,9 +50,9 @@ export default [
     },
     name: 'Pivot',
     description: "Test des Pivots.",
-    tags: [ 'PivotTableJS' ],
+    tags: ['PivotTableJS'],
     categories: {
-      metier: [ 'dev' ]
+      metier: ['dev']
     }
   }, {
     router: {
@@ -62,9 +62,9 @@ export default [
     },
     name: 'Calendar',
     description: "Test des Calendar.",
-    tags: [ 'VisJs' ],
+    tags: ['VisJs'],
     categories: {
-      metier: [ 'dev' ]
+      metier: ['dev']
     }
   }, {
     router: {
@@ -74,9 +74,9 @@ export default [
     },
     name: 'Graph',
     description: "Test des Graph.",
-    tags: [ 'D3Js' ],
+    tags: ['D3Js'],
     categories: {
-      metier: [ 'dev' ]
+      metier: ['dev']
     }
   }, {
     router: {
@@ -86,35 +86,33 @@ export default [
     },
     name: 'GraphCustom',
     description: "Tentative de création d'un Graph SVG maison.",
-    tags: [ 'SVG', 'custom' ],
+    tags: ['SVG', 'custom'],
     categories: {
-      metier: [ 'dev' ]
+      metier: ['dev']
     }
   }, {
     router: {
-      path: '/reseaudetails/:id',
+      path: '/reseaudetails',
       name: ReseauDetails.name,
       component: ReseauDetails,
-      props: true
     },
     name: 'Reseau Details',
     description: "Detail d'un réseau.",
     categories: {
-      metier: [ 'user' ],
-      entryPoint: [ 'reseau' ]
+      metier: ['user'],
+      entryPoint: ['reseau']
     }
   }, {
     router: {
-      path: '/implantationdetails/:id',
+      path: '/implantationdetails',
       name: ImplantationDetails.name,
       component: ImplantationDetails,
-      props: true
     },
     name: 'Implantation Details',
     description: "Detail d'une implantation.",
     categories: {
-      metier: [ 'user' ],
-      entryPoint: [ 'implantation' ]
+      metier: ['user'],
+      entryPoint: ['implantation']
     }
   }
 ]

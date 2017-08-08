@@ -17,7 +17,7 @@
     </article>
 
     <article class="container-fluid">
-      <div v-for="module in modules" class="col-md-4">
+      <div v-for="module in modules" :key="module.name" class="col-md-4">
         <article class="panel panel-primary">
           <div class="panel-heading">
             {{module.name}}
@@ -34,7 +34,7 @@
               <div>
                 <strong>Tags</strong>
               </div>
-              <span v-for="tag in module.tags" class="label label-default">{{tag}}</span>
+              <span v-for="tag in module.tags" :key="tag" class="label label-default">{{tag}}</span>
             </li>
             <li class="list-group-item">
               <div>
